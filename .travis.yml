@@ -16,12 +16,12 @@ before_script:
 script:
   - sudo docker --version # give info on docker version
   - sudo docker build -t frontend ./
-  - sudo docker tag frontend mfadhiligitau/udagram-reverse-proxy
+  - sudo docker tag frontend mfadhiligitau/udagram-frontend
   - sudo docker --version 
 
 after_success: 
   - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-  - docker push mfadhiligitau/udagram-reverse-proxy
+  - docker push mfadhiligitau/udagram-frontend
   - docker images
 
 #deploy:
